@@ -38,9 +38,18 @@ Future<String> imdbAPI(String id) async {
     return a;
   }
 
-  print(title);
-  print(ratings);
-  print(plot);
-  print(stars());
-  print(poster());
+  String release() {
+    var l = document
+        .getElementsByClassName('title_wrapper')[0]
+        .children[1]
+        .children;
+    return l[l.length - 1].text.trim();
+  }
+
+  print('TITLE    :   $title');
+  print('RATINGS  :   $ratings');
+  print('PLOT     :   $plot');
+  print('STARS    :   ${stars()}');
+  print('RELEASE  :   ${release()}');
+  print('POSTER   :   ${poster()}');
 }
